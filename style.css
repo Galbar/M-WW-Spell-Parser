@@ -1,0 +1,51 @@
+[class^="MWWElement-"],
+[class*=" MWWElement-"]
+{
+	display: inline-block;
+	height: 16px;
+	width: 24px;
+	padding: 0px;
+	margin: 0px 0px;
+	margin-top: 5px;
+	background: no-repeat center;
+}
+
+.MWWElement-Q
+{
+	background-image: url("images/Water.png");
+}
+
+.MWWElement-W
+{
+	background-image: url("images/Life.png");
+}
+
+.MWWElement-E
+{
+	background-image: url("images/Shield.png");
+}
+
+.MWWElement-R
+{
+	background-image: url("images/Cold.png");
+}
+
+.MWWElement-A
+{
+	background-image: url("images/Lightning.png");
+}
+
+.MWWElement-S
+{
+	background-image: url("images/Arcane.png");
+}
+
+.MWWElement-D
+{
+	background-image: url("images/Earth.png");
+}
+
+.MWWElement-F
+{
+	background-image: url("images/Water.png");
+}
