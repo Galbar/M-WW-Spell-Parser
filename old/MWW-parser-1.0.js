@@ -166,7 +166,7 @@ function ParseSpells(text)
 	return ret_text;
 }
 
-var body = document.getElementsByTagName("body")[0];
-body.innerHTML = ParseSpells(body.innerHTML);
+//var body = document.getElementsByTagName("body")[0];
+//body.innerHTML = ParseSpells(body.innerHTML);
 
-//console.log(ParseSpells("Lightning - 19<br>AAA<br>AAW, AAR, AAS, AAF<br>AWW, ARR, ASS, AFF<br>ASF, ASR, AWF, AWR<br>AA<br>"));
+console.log(ParseSpells("his: EDQ and EQQ. H"));
