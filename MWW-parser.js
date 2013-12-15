@@ -165,5 +165,5 @@ function ParseSpells(text)
 	return ret_text;
 }
 
-var posts = document.getElementById("body");
-posts.innerHTML = ParseSpells(posts.innerHTML);
+var body = document.getElementsByTagName("body")[0];
+body.innerHTML = ParseSpells(body.innerHTML);
