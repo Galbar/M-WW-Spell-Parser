@@ -1,6 +1,6 @@
 var elements = ["Q", "W", "E", "R", "A", "S", "D", "F", "X"];
 var modifiers = ["[", "]", "!", "c"];
-var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")", "\n"];
+var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")", "\n", "."];
 
 function isElement (c) {
 	for (var i = 0; i < elements.length; i++) {
