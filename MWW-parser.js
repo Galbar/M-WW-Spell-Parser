@@ -48,8 +48,9 @@ function ParseSpells(text)
 			if (cancel_spell)
 			{
 				console.log("cancelling spell "+out);
-				for (; it < text.length && !(isSeparator(text[it]) >= 0); it++);
+				for (; it < text.length && !(isElement(text[it]) >= 0 || isModifier(text[it]) >= 0); it++);
 
+				it--;
 				cancel_spell = false;
 			}
 			else if (!mod_open && elem_count > 0 && elem_count < 4)
@@ -164,7 +165,7 @@ function ParseSpells(text)
 	return ret_text;
 }
 
-var body = document.getElementsByTagName("body")[0];
-body.innerHTML = ParseSpells(body.innerHTML);
+//var body = document.getElementsByTagName("body")[0];
+//body.innerHTML = ParseSpells(body.innerHTML);
 
-//console.log(ParseSpells("HASE cASE"));
+console.log(ParseSpells("parately (QQQ = [Q][Q][Q])<br>  EDF, SER, ASD, SDA"));
