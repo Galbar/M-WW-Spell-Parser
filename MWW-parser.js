@@ -164,7 +164,7 @@ function ParseSpells(text)
 	return ret_text;
 }
 
-//var body = document.getElementsByTagName("body")[0];
-//body.innerHTML = ParseSpells(body.innerHTML);
+var body = document.getElementsByTagName("body")[0];
+body.innerHTML = ParseSpells(body.innerHTML);
 
-console.log(ParseSpells("HASE cASE"));
+//console.log(ParseSpells("HASE cASE"));
