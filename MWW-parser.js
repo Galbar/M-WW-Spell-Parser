@@ -152,7 +152,7 @@ function ParseSpells(text)
 			if (!not_in_possible_spell)
 			{
 				console.log("Añado "+elements[elem_or_mod]+" a out");
-				spell_html += "<i class='"+elements[elem_or_mod]+"'></i>";
+				spell_html += "<i class='MWWElement-"+elements[elem_or_mod]+"'></i>";
 				out += elements[elem_or_mod];
 			}
 			continue;
