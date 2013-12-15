@@ -1,6 +1,6 @@
 var elements = ["Q", "W", "E", "R", "A", "S", "D", "F", "X"];
 var modifiers = ["[", "]", "!", "c"];
-var separators = [" ", "<", ">", "+", ",", "\"", ":"];
+var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")"];
 
 function isElement (c) {
 	for (var i = 0; i < elements.length; i++) {
@@ -48,7 +48,7 @@ function ParseSpells(text)
 			if (cancel_spell)
 			{
 				console.log("cancelling spell "+out);
-				for (; it < text.length && isSeparator(text[it]) >= 0; it++);
+				for (; it < text.length && !isSeparator(text[it]) >= 0; it++);
 
 				it--;
 				cancel_spell = false;
@@ -166,3 +166,5 @@ function ParseSpells(text)
 
 var body = document.getElementsByTagName("body")[0];
 body.innerHTML = ParseSpells(body.innerHTML);
+
+//console.log(ParseSpells("HASE"));
