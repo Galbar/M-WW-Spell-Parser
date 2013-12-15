@@ -133,6 +133,7 @@ function ParseSpells(text)
 			{
 				console.log("Añado "+modifiers[elem_or_mod]+" a out");
 				console.log("mod_open = "+mod_open);
+				spell_html += modifiers[elem_or_mod];
 				out += modifiers[elem_or_mod];
 				continue;
 			}
@@ -163,7 +164,7 @@ function ParseSpells(text)
 	return ret_text;
 }
 
-var body = document.getElementsByTagName("body")[0];
-body.innerHTML = ParseSpells(body.innerHTML);
+//var body = document.getElementsByTagName("body")[0];
+//body.innerHTML = ParseSpells(body.innerHTML);
 
-//console.log(ParseSpells("HASE ASE"));
+console.log(ParseSpells("HASE cASE"));
