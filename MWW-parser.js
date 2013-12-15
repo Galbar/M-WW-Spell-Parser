@@ -1,6 +1,6 @@
 var elements = ["Q", "W", "E", "R", "A", "S", "D", "F", "X"];
 var modifiers = ["[", "]", "!", "c"];
-var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")"];
+var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")", "\n"];
 
 function isElement (c) {
 	for (var i = 0; i < elements.length; i++) {
@@ -47,10 +47,11 @@ function ParseSpells(text)
 		{
 			if (cancel_spell)
 			{
-				console.log("cancelling spell "+out);
-				for (; it < text.length && !(isElement(text[it]) >= 0 || isModifier(text[it]) >= 0); it++);
-
 				it--;
+				console.log("cancelling spell "+out);
+				for (; it < text.length && !(isSeparator(text[it]) >= 0); it++);
+
+			console.log(text.substring(it-1,it+2));
 				cancel_spell = false;
 			}
 			else if (!mod_open && elem_count > 0 && elem_count < 4)
@@ -168,4 +169,4 @@ function ParseSpells(text)
 var body = document.getElementsByTagName("body")[0];
 body.innerHTML = ParseSpells(body.innerHTML);
 
-//console.log(ParseSpells("parately (QQQ = [Q][Q][Q])<br>  EDF, SER, ASD, SDA"));
+//console.log(ParseSpells("Lightning - 19<br>AAA<br>AAW, AAR, AAS, AAF<br>AWW, ARR, ASS, AFF<br>ASF, ASR, AWF, AWR<br>AA<br>"));
