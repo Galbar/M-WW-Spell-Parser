@@ -67,9 +67,7 @@ Normal cast + Selfcast = Total * 2 = 226 <br>
 <!-- JS -->
 <script type="text/javascript">
 var posts = document.getElementById("body");
-for (var i = 0; i < posts.length; i++) {
-	posts.children[i].innerHTML = ParseSpells(posts.children[i].innerHTML);
-};
+posts.innerHTML = ParseSpells(posts.innerHTML);
 </script>
 </body>
 </html>
