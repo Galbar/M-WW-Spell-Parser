@@ -1,6 +1,6 @@
 var elements = ["Q", "W", "E", "R", "A", "S", "D", "F", "X"];
 var modifiers = ["[", "]", "!", "c"];
-var separators = [":"];
+var separators = [" ", "<", ">", "+", ",", "\"", ":", "(", ")", "\n"];
 
 function isElement (c) {
 	for (var i = 0; i < elements.length; i++) {
@@ -58,8 +58,8 @@ function ParseSpells(text)
 			{
 				console.log("Hechizo acabado: "+out);
 				console.log(text.substring(it-out.length,it));
-				ret_text += text.substring(last_pos,it-out.length-1)+spell_html;
-				last_pos = it+1;
+				ret_text += text.substring(last_pos,it-out.length)+spell_html;
+				last_pos = it;
 			}
 			else
 			{
