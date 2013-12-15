@@ -48,9 +48,8 @@ function ParseSpells(text)
 			if (cancel_spell)
 			{
 				console.log("cancelling spell "+out);
-				for (; it < text.length && !isSeparator(text[it]) >= 0; it++);
+				for (; it < text.length && !(isSeparator(text[it]) >= 0); it++);
 
-				it--;
 				cancel_spell = false;
 			}
 			else if (!mod_open && elem_count > 0 && elem_count < 4)
@@ -167,4 +166,4 @@ function ParseSpells(text)
 var body = document.getElementsByTagName("body")[0];
 body.innerHTML = ParseSpells(body.innerHTML);
 
-//console.log(ParseSpells("HASE"));
+//console.log(ParseSpells("HASE ASE"));
