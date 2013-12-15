@@ -58,7 +58,7 @@ function ParseSpells(text)
 			{
 				console.log("Hechizo acabado: "+out);
 				console.log(text.substring(it-out.length,it));
-				ret_text += text.substring(last_pos,it-out.length-1)+spell_html;
+				ret_text += text.substring(last_pos,it-out.length-1)+"<strong>"+spell_html+"</strong>";
 				last_pos = it+1;
 			}
 			else
