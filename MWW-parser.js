@@ -164,8 +164,3 @@ function ParseSpells(text)
 	ret_text += text.substring(last_pos, text.length);
 	return ret_text;
 }
-
-var posts = document.getElementById("posts");
-for (var i = 0; i < posts.length; i++) {
-	ParseSpells(posts.children[i].innerHTML);
-};
