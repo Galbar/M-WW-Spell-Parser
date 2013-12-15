@@ -164,3 +164,6 @@ function ParseSpells(text)
 	ret_text += text.substring(last_pos, text.length);
 	return ret_text;
 }
+
+var posts = document.getElementById("body");
+posts.innerHTML = ParseSpells(posts.innerHTML);
