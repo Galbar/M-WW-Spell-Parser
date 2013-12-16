@@ -83,7 +83,7 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 	for (this.it = 0; this.it < this.text.length || !not_in_possible_spell; this.it++)
 	{
 		console.log(this.text[this.it]);
-		if (checkIfPhrase()) continue;
+		if (this.checkIfPhrase()) continue;
 		if ((this.isSeparator(this.text[this.it]) && !not_in_possible_spell) || this.it >= this.text.length || cancel_spell /*|| (elem_count > 3 && !mod_open)*/)
 		{
 			if (cancel_spell)
