@@ -244,5 +244,5 @@ MWWSpellParser.prototype.ParseSpells = function()
 	}
 };
 
-//var p = new MWWSpellParser("tag", "body");
+var p = new MWWSpellParser("class", "postbody");
 //console.log(p.ParseString("ASD SER hola ASO !E Magicka-WW-"));
