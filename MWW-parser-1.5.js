@@ -20,11 +20,15 @@ MWWSpellParser.prototype.checkIfPhrase = function()
 	var found = false;
 	for (var i = 0; i < this.non_spells_phrases.length && !found; i++)
 	{
-		found =  (this.non_spells_phrases[i] == this.text.substring(this.it,this.it+this.non_spells_phrases[i].length));
-		for (var j = 0; j < this.non_spells_phrases[i].length; j++)
+		console.log("Comprobando si frase: "+this.non_spells_phrases[i]+"? "+this.text.substring(this.it-1,this.it+this.non_spells_phrases[i].length));
+		if (this.non_spells_phrases[i] == this.text.substring(this.it-1,this.it+this.non_spells_phrases[i].length))
 		{
-			this.it++;
-		};
+			found =  true;	
+			for (var j = 0; j < this.non_spells_phrases[i].length; j++)
+			{
+				this.it++;
+			};
+		}
 	};
 	return found;
 };
