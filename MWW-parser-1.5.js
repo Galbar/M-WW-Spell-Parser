@@ -8,7 +8,26 @@ function MWWSpellParser(type, name)
 	this.modifiers = ['[', ']', '!', 'c'];
 	this.it = 0;
 	this.text = "";
+	this.non_spells_phrases = [
+	". A ",
+	"FAQ",
+	"F.A.Q."
+	];
 }
+
+MWWSpellParser.prototype.checkIfPhrase = function()
+{
+	var found = false;
+	for (var i = 0; i < this.non_spells_phrases.length && !found; i++)
+	{
+		found =  (this.non_spells_phrases[i] == this.text.substring(this.it,this.it+this.non_spells_phrases[i].length));
+		for (var j = 0; j < this.non_spells_phrases[i].length; j++)
+		{
+			this.it++;
+		};
+	};
+	return found;
+};
 
 MWWSpellParser.prototype.isElement = function(c)
 {
@@ -64,6 +83,7 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 	for (this.it = 0; this.it < this.text.length || !not_in_possible_spell; this.it++)
 	{
 		console.log(this.text[this.it]);
+		if (checkIfPhrase()) continue;
 		if ((this.isSeparator(this.text[this.it]) && !not_in_possible_spell) || this.it >= this.text.length || cancel_spell /*|| (elem_count > 3 && !mod_open)*/)
 		{
 			if (cancel_spell)
@@ -187,4 +207,4 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 };
 
 var p = new MWWSpellParser("tag", "body");
-console.log(p.ParseSpells("ASE Spell"));
+console.log(p.ParseSpells("ASE Spell. A "));
