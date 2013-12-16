@@ -216,4 +216,4 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 };
 
 var p = new MWWSpellParser("tag", "body");
-console.log(p.ParseSpells("Shield - 32<br>\nEQQ, EWW, ERR, EAA, ESS, EDD, EFF, EQR, EQF<br>\nEDQ, EDW, EDR, EDS, EDF<br>\nEAW, EAR, EAS, EAF<br>\nESQ, ESF, ESR<br>\nEWQ, EWR, EWF<br>\nEQ, EW, ER, EA, ES, ED, EF<br>\nE<br>"));
+console.log(p.ParseSpells("possible. A spell should "));
