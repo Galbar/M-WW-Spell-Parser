@@ -4,6 +4,8 @@
 
 function MWWSpellParser(type, name)
 {
+	this.type = type;
+	this.name = name;
 	this.elements = ['Q', 'W', 'E', 'R', 'A', 'S', 'D', 'F', 'X'];
 	this.modifiers = ['[', ']', '!', 'c'];
 	this.it = 0;
@@ -15,6 +17,7 @@ function MWWSpellParser(type, name)
 	"FAQ",
 	"F.A.Q."
 	];
+	this.ParseSpells();
 }
 
 MWWSpellParser.prototype.checkIfPhrase = function()
@@ -73,7 +76,7 @@ MWWSpellParser.prototype.isSeparator = function(c)
 	return ret;
 };
 
-MWWSpellParser.prototype.ParseSpells = function(text)
+MWWSpellParser.prototype.ParseString = function(text)
 {
 	this.text = text;
 	this.it = 0;
@@ -215,5 +218,30 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 	return ret_text;
 };
 
-var p = new MWWSpellParser("tag", "body");
-console.log(p.ParseSpells("needs to do is make sure this group is as large as possible. A spell should only be considered overpowered if it is impossible to counter or makes a bunch of other spells completely pointless. You're still learning the game, just like everyone else is, yet you're trying to call out whatever the flavor of the day spell is as imbalanced. "));
+MWWSpellParser.prototype.ParseSpells = function()
+{
+	var HTMLelements;
+	if (this.type == "tag")
+	{
+		HTMLelements = document.getElementsByTagName(this.name);
+		console.log(HTMLelements);
+	}
+	else if (this.type == "id")
+	{
+		HTMLelements = document.getElementById(this.name);
+	}
+	else if (this.type == "class")
+	{
+		HTMLelements = document.getElementsByClassName(this.name);
+	}
+	if (HTMLelements != undefined)
+	{
+		for (var i = 0; i < HTMLelements.length; i++)
+		{
+			HTMLelements[i].innerHTML = this.ParseString(HTMLelements[i].innerHTML);
+		};
+	}
+};
+
+//var p = new MWWSpellParser("tag", "body");
+//console.log(p.ParseString("ASD SER hola ASO !E"));
