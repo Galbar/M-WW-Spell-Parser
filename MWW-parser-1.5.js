@@ -110,7 +110,7 @@ MWWSpellParser.prototype.ParseString = function(text)
 			{
 				console.log("Hechizo acabado: "+out);
 				console.log(this.text.substring(this.it-out.length,this.it));
-				ret_text += this.text.substring(last_pos,this.it-out.length)+"<strong>"+spell_html+"</strong>";
+				ret_text += this.text.substring(last_pos,this.it-out.length)+"<strong class='MWWSpell'>"+spell_html+"</strong>";
 				last_pos = this.it;
 			}
 			else
@@ -224,7 +224,6 @@ MWWSpellParser.prototype.ParseSpells = function()
 	if (this.type == "tag")
 	{
 		HTMLelements = document.getElementsByTagName(this.name);
-		console.log(HTMLelements);
 	}
 	else if (this.type == "id")
 	{

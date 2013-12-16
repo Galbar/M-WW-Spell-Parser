@@ -5,9 +5,18 @@
 	height: 25px;
 	width: 25px;
 	padding: 0px;
-	margin: 0px 0px;
-	margin-bottom: -4px;
+	margin: 0px;
 	background: no-repeat center;
+}
+
+.MWWSpell
+{
+	margin: 2px;
+	background-color: gray;
+	padding: 5px;
+	border-radius: 10px;
+	display: inline-block;
+	color: white;
 }
 
 .MWWElement-Q
