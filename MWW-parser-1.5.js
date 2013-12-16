@@ -9,6 +9,8 @@ function MWWSpellParser(type, name)
 	this.it = 0;
 	this.text = "";
 	this.non_spells_phrases = [
+	">A ",
+	"M:WW",
 	". A ",
 	"FAQ",
 	"F.A.Q."
@@ -20,10 +22,13 @@ MWWSpellParser.prototype.checkIfPhrase = function()
 	var found = false;
 	for (var i = 0; i < this.non_spells_phrases.length && !found; i++)
 	{
-		console.log("Comprobando si frase: "+this.non_spells_phrases[i]+"? "+this.text.substring(this.it-1,this.it+this.non_spells_phrases[i].length));
-		if (this.non_spells_phrases[i] == this.text.substring(this.it-1,this.it+this.non_spells_phrases[i].length))
+		console.log("Comprobando si frase: ");
+		console.log(this.non_spells_phrases[i]);
+		console.log(this.text.substring(this.it-1,this.it-1+this.non_spells_phrases[i].length));
+		if (this.non_spells_phrases[i] == this.text.substring(this.it-1,this.it-1+this.non_spells_phrases[i].length))
 		{
-			found =  true;	
+			found =  true;
+			this.it--;
 			for (var j = 0; j < this.non_spells_phrases[i].length; j++)
 			{
 				this.it++;
@@ -211,4 +216,4 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 };
 
 var p = new MWWSpellParser("tag", "body");
-console.log(p.ParseSpells("ASE Spell. A "));
+console.log(p.ParseSpells("Shield - 32<br>\nEQQ, EWW, ERR, EAA, ESS, EDD, EFF, EQR, EQF<br>\nEDQ, EDW, EDR, EDS, EDF<br>\nEAW, EAR, EAS, EAF<br>\nESQ, ESF, ESR<br>\nEWQ, EWR, EWF<br>\nEQ, EW, ER, EA, ES, ED, EF<br>\nE<br>"));
