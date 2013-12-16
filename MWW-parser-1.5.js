@@ -13,6 +13,8 @@ function MWWSpellParser(type, name)
 	this.non_spells_phrases = [
 	">A ",
 	"M:WW",
+	" WW ",
+	"-WW-",
 	". A ",
 	"FAQ",
 	"F.A.Q."
@@ -95,7 +97,7 @@ MWWSpellParser.prototype.ParseString = function(text)
 	for (this.it = 0; this.it < this.text.length || !not_in_possible_spell; this.it++)
 	{
 		console.log(this.text[this.it]);
-		if (this.checkIfPhrase()) continue;
+		if (this.checkIfPhrase()) cancel_spell = true;
 		if ((this.isSeparator(this.text[this.it]) && !not_in_possible_spell) || this.it >= this.text.length || cancel_spell /*|| (elem_count > 3 && !mod_open)*/)
 		{
 			if (cancel_spell)
@@ -243,4 +245,4 @@ MWWSpellParser.prototype.ParseSpells = function()
 };
 
 //var p = new MWWSpellParser("tag", "body");
-//console.log(p.ParseString("ASD SER hola ASO !E"));
+//console.log(p.ParseString("ASD SER hola ASO !E Magicka-WW-"));

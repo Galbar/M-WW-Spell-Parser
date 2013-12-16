@@ -13,6 +13,8 @@ function MWWSpellParser(type, name)
 	this.non_spells_phrases = [
 	">A ",
 	"M:WW",
+	" WW ",
+	"-WW-",
 	". A ",
 	"FAQ",
 	"F.A.Q."
@@ -95,7 +97,7 @@ MWWSpellParser.prototype.ParseString = function(text)
 	for (this.it = 0; this.it < this.text.length || !not_in_possible_spell; this.it++)
 	{
 		console.log(this.text[this.it]);
-		if (this.checkIfPhrase()) continue;
+		if (this.checkIfPhrase()) cancel_spell = true;
 		if ((this.isSeparator(this.text[this.it]) && !not_in_possible_spell) || this.it >= this.text.length || cancel_spell /*|| (elem_count > 3 && !mod_open)*/)
 		{
 			if (cancel_spell)
@@ -242,20 +244,5 @@ MWWSpellParser.prototype.ParseSpells = function()
 	}
 };
 
-function loadjscssfile(filename, filetype){
- if (filetype=="js"){ //if filename is a external JavaScript file
-  var fileref=document.createElement('script')
-  fileref.setAttribute("type","text/javascript")
-  fileref.setAttribute("src", filename)
- }
- else if (filetype=="css"){ //if filename is an external CSS file
-  var fileref=document.createElement("link")
-  fileref.setAttribute("rel", "stylesheet")
-  fileref.setAttribute("type", "text/css")
-  fileref.setAttribute("href", filename)
- }
- if (typeof fileref!="undefined")
-  document.getElementsByTagName("head")[0].appendChild(fileref)
-}
-loadjscssfile("http://galbar.github.io/M-WW-Spell-Parser/style.css", "css");
-var p = new MWWSpellParser("class", "postbody");
+//var p = new MWWSpellParser("tag", "body");
+//console.log(p.ParseString("ASD SER hola ASO !E Magicka-WW-"));
