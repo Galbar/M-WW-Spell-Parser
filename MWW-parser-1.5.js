@@ -216,4 +216,4 @@ MWWSpellParser.prototype.ParseSpells = function(text)
 };
 
 var p = new MWWSpellParser("tag", "body");
-console.log(p.ParseSpells("possible. A spell should "));
+console.log(p.ParseSpells("needs to do is make sure this group is as large as possible. A spell should only be considered overpowered if it is impossible to counter or makes a bunch of other spells completely pointless. You're still learning the game, just like everyone else is, yet you're trying to call out whatever the flavor of the day spell is as imbalanced. "));
