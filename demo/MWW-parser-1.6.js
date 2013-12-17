@@ -235,7 +235,7 @@ MWWSpellParser.prototype.ParseSpells = function()
 	}
 	else if (this.type == "id")
 	{
-		HTMLelements = document.getElementById(this.name);
+		HTMLelements[0] = document.getElementById(this.name);
 	}
 	else if (this.type == "class")
 	{
