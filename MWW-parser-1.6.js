@@ -229,13 +229,15 @@ MWWSpellParser.prototype.ParseString = function(text)
 MWWSpellParser.prototype.ParseSpells = function()
 {
 	var HTMLelements;
+	var is_id = false
 	if (this.type == "tag")
 	{
 		HTMLelements = document.getElementsByTagName(this.name);
 	}
 	else if (this.type == "id")
 	{
-		HTMLelements[0] = document.getElementById(this.name);
+		is_id = true;
+		HTMLelements = document.getElementById(this.name);
 	}
 	else if (this.type == "class")
 	{
@@ -243,10 +245,18 @@ MWWSpellParser.prototype.ParseSpells = function()
 	}
 	if (HTMLelements != undefined)
 	{
-		for (var i = 0; i < HTMLelements.length; i++)
+		if (is_id)
 		{
-			HTMLelements[i].innerHTML = this.ParseString(HTMLelements[i].innerHTML);
-		};
+			console.log("is_id");
+			HTMLelements.innerHTML = this.ParseString(HTMLelements.innerHTML);
+		}
+		else
+		{
+			for (var i = 0; i < HTMLelements.length; i++)
+			{
+				HTMLelements[i].innerHTML = this.ParseString(HTMLelements[i].innerHTML);
+			};
+		}
 	}
 };
 
