@@ -24,6 +24,8 @@ function MWWSpellParser(type, name)
 	"F.A.Q.",
 	":S",
 	":D"
+    "'S ",
+    "'RE "
 	];
 	this.ParseSpells();
 }
