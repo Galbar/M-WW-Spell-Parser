@@ -11,14 +11,33 @@ function MWWSpellParser(type, name)
 	this.it = 0;
 	this.text = "";
 	this.non_spells_phrases = [
-	"\nA",
+	"\nQ ",
+	">Q ",
+	"\nW ",
+	">W ",
+	"\nE ",
+	">E ",
+	"\nR ",
+	">R ",
+	"\nA ",
 	">A ",
+	"\nS ",
+	">S ",
+	"\nD ",
+	">D ",
+	"\nF ",
+	">F ",
+	"\nX ",
+	">X ",
+	" X ",
 	"M:WW",
 	":WW",
 	"-WW-",
 	". A ",
 	"FAQ",
-	"F.A.Q."
+	"F.A.Q.",
+	":S",
+	":D"
 	];
 	this.ParseSpells();
 }
