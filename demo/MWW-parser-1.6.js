@@ -11,22 +11,8 @@ function MWWSpellParser(type, name)
 	this.it = 0;
 	this.text = "";
 	this.non_spells_phrases = [
-	"\nQ ",
-	">Q ",
-	"\nW ",
-	">W ",
-	"\nE ",
-	">E ",
-	"\nR ",
-	">R ",
 	"\nA ",
 	">A ",
-	"\nS ",
-	">S ",
-	"\nD ",
-	">D ",
-	"\nF ",
-	">F ",
 	"\nX ",
 	">X ",
 	" X ",
