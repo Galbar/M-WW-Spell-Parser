@@ -11,7 +11,10 @@
 
 .MWWSpell
 {
-	margin: 2px;
+	margin: 0px;
+	margin-top: 5px;
+	position: relative;
+	top: -5px;
 	background-color: gray;
 	padding: 5px;
 	border-radius: 10px;
@@ -62,4 +65,9 @@
 .MWWElement-X
 {
 	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/unknown.png");
+}
+
+.MWWElement-text
+{
+	opacity: 0;
 }
