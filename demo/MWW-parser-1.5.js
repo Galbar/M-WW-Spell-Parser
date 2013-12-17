@@ -11,6 +11,7 @@ function MWWSpellParser(type, name)
 	this.it = 0;
 	this.text = "";
 	this.non_spells_phrases = [
+	"\nA",
 	">A ",
 	"M:WW",
 	" WW ",
