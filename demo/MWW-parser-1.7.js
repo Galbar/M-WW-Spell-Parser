@@ -25,7 +25,8 @@ function MWWSpellParser(type, name)
 	":S",
 	":D"
     "'S ",
-    "'RE "
+    "'RE ",
+    " D:"
 	];
 	this.ParseSpells();
 }
