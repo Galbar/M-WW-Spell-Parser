@@ -33,9 +33,9 @@ MWWSpellParser.prototype.checkIfPhrase = function()
 	var found = false;
 	for (var i = 0; i < this.non_spells_phrases.length && !found; i++)
 	{
-		console.log("Comprobando si frase: ");
-		console.log(this.non_spells_phrases[i]);
-		console.log(this.text.substring(this.it-1,this.it-1+this.non_spells_phrases[i].length));
+		//console.log("Comprobando si frase: ");
+		//console.log(this.non_spells_phrases[i]);
+		//console.log(this.text.substring(this.it-1,this.it-1+this.non_spells_phrases[i].length));
 		if (this.non_spells_phrases[i] == this.text.substring(this.it-1,this.it-1+this.non_spells_phrases[i].length))
 		{
 			found =  true;
@@ -99,33 +99,33 @@ MWWSpellParser.prototype.ParseString = function(text)
 	var ret_text = "";
 	var last_pos = 0;
 
-	console.log("Empieza la acción");
+	//console.log("Empieza la acción");
 	for (this.it = 0; this.it < this.text.length || !not_in_possible_spell; this.it++)
 	{
-		console.log(this.text[this.it]);
+		//console.log(this.text[this.it]);
 		if (this.checkIfPhrase()) cancel_spell = true;
 		if ((this.isSeparator(this.text[this.it]) && !not_in_possible_spell) || this.it >= this.text.length || cancel_spell /*|| (elem_count > 3 && !mod_open)*/)
 		{
 			if (cancel_spell)
 			{
 				this.it--;
-				console.log("cancelling spell "+out);
+				//console.log("cancelling spell "+out);
 				for (; this.it < this.text.length && !(this.isSeparator(this.text[this.it])); this.it++);
-				console.log(this.text.substring(this.it-1,this.it+2));
+				//console.log(this.text.substring(this.it-1,this.it+2));
 				cancel_spell = false;
 			}
 			else if (!mod_open && elem_count > 0 && elem_count < 4)
 			{
-				console.log("Hechizo acabado: "+out);
-				console.log(this.text.substring(this.it-out.length,this.it));
+				//console.log("Hechizo acabado: "+out);
+				//console.log(this.text.substring(this.it-out.length,this.it));
 				ret_text += this.text.substring(last_pos,this.it-out.length)+"<strong class='MWWSpell'>"+spell_html+"</strong>";
 				last_pos = this.it;
 			}
 			else
 			{
-				console.log("Resultó que no es un hechizo");
+				//console.log("Resultó que no es un hechizo");
 			}
-			console.log("-----------------");
+			//console.log("-----------------");
 			not_in_possible_spell = true;
 			out = "";
 			spell_html = "";
@@ -150,7 +150,7 @@ MWWSpellParser.prototype.ParseString = function(text)
 				}
 				else
 				{
-					console.log("Cancel spell due to"+" wrong mod at begining");
+					//console.log("Cancel spell due to"+" wrong mod at begining");
 					cancel_spell = true;
 					continue;
 				}
@@ -164,13 +164,13 @@ MWWSpellParser.prototype.ParseString = function(text)
 				}
 				else if (elem_or_mod == 0 && mod_open)
 				{
-					console.log("Cancel spell due to"+" [ already open");
+					//console.log("Cancel spell due to"+" [ already open");
 					cancel_spell = true;
 					continue;
 				}
 				else if (elem_or_mod == 1 && !mod_open)
 				{
-					console.log("Cancel spell due to"+" no [ to close");
+					//console.log("Cancel spell due to"+" no [ to close");
 					cancel_spell = true;
 					continue;
 				}
@@ -185,7 +185,7 @@ MWWSpellParser.prototype.ParseString = function(text)
 				}
 				else if ((elem_or_mod == 2 || elem_or_mod == 3) && elem_count > 0)
 				{
-					console.log("Cancel spell due to"+" ! or c not in the begining");
+					//console.log("Cancel spell due to"+" ! or c not in the begining");
 					cancel_spell = true;
 					continue;
 				}
@@ -193,8 +193,8 @@ MWWSpellParser.prototype.ParseString = function(text)
 
 			if (!not_in_possible_spell)
 			{
-				console.log("Añado "+this.modifiers[elem_or_mod]+" a out");
-				console.log("mod_open = "+mod_open);
+				//console.log("Añado "+this.modifiers[elem_or_mod]+" a out");
+				//console.log("mod_open = "+mod_open);
 				spell_html += this.modifiers[elem_or_mod];
 				out += this.modifiers[elem_or_mod];
 				continue;
@@ -212,16 +212,16 @@ MWWSpellParser.prototype.ParseString = function(text)
 
 			if (!not_in_possible_spell)
 			{
-				console.log("Añado "+this.elements[elem_or_mod]+" a out (elem_count = "+elem_count+")");
+				//console.log("Añado "+this.elements[elem_or_mod]+" a out (elem_count = "+elem_count+")");
 				spell_html += "<i class='MWWElement-"+this.elements[elem_or_mod]+"'></i>";
 				out += this.elements[elem_or_mod];
 			}
 			continue;
 		}
-		console.log("cancelling because char "+this.text[this.it]+" is not an element nor modifier");
+		//console.log("cancelling because char "+this.text[this.it]+" is not an element nor modifier");
 		cancel_spell = true;
 	}
-	console.log("Acción acabada");
+	//console.log("Acción acabada");
 	ret_text += this.text.substring(last_pos, this.text.length);
 	return ret_text;
 };
