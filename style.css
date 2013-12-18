@@ -1,5 +1,7 @@
 [class^="MWWElement-"],
-[class*=" MWWElement-"]
+[class*=" MWWElement-"],
+[class^="MWWModifier-"],
+[class*=" MWWModifier-"]
 {
 	display: inline-block;
 	height: 25px;
@@ -23,6 +25,26 @@
 	border-radius: 10px;
 	display: inline-block;
 	color: white;
+}
+
+.MWWModifier-self
+{
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/!.png");
+}
+
+.MWWModifier-open
+{
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/[.png");
+}
+
+.MWWModifier-close
+{
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/].png");
+}
+
+.MWWModifier-charged
+{
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/c.png");
 }
 
 .MWWElement-Q
