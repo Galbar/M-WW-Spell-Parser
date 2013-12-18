@@ -306,3 +306,5 @@ MWWSpellParser.prototype.ParseSpells = function()
 		}
 	}
 };
+
+var p = new MWWSpellParser("class", "postbody");
