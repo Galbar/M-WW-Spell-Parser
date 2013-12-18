@@ -38,73 +38,75 @@
 .MWWModifier-self
 {
 	width: 14px;
-	background-image: url("images/!.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/!.png");
 }
 
 .MWWModifier-open
 {
+	margin-left: -3px;
 	margin-right: -1px;
 	width: 15px;
-	background-image: url("images/[.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/[.png");
 }
 
 .MWWModifier-close
 {
 	margin-left: -3px;
+	margin-right: -3px;
 	width: 15px;
-	background-image: url("images/].png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/].png");
 }
 
 .MWWModifier-charged
 {
 	width: 19px;
 	background-position: -2px -6px;
-	background-image: url("images/c.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/c.png");
 }
 
 .MWWElement-Q
 {
-	background-image: url("images/Q.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/Q.png");
 }
 
 .MWWElement-W
 {
-	background-image: url("images/W.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/W.png");
 }
 
 .MWWElement-E
 {
-	background-image: url("images/E.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/E.png");
 }
 
 .MWWElement-R
 {
-	background-image: url("images/R.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/R.png");
 }
 
 .MWWElement-A
 {
-	background-image: url("images/A.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/A.png");
 }
 
 .MWWElement-S
 {
-	background-image: url("images/S.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/S.png");
 }
 
 .MWWElement-D
 {
-	background-image: url("images/D.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/D.png");
 }
 
 .MWWElement-F
 {
-	background-image: url("images/F.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/F.png");
 }
 
 .MWWElement-X
 {
-	background-image: url("images/unknown.png");
+	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/unknown.png");
 }
 
 .MWWElement-text
