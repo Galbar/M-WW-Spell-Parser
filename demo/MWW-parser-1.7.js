@@ -23,7 +23,7 @@ function MWWSpellParser(type, name)
 	"FAQ",
 	"F.A.Q.",
 	":S",
-	":D"
+	":D",
     "'S ",
     "'RE ",
     " D:"
