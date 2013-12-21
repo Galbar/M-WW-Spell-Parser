@@ -7,7 +7,7 @@ function MWWSpellParser(type, name)
 	this.type = type;
 	this.name = name;
 	this.skip_HTML = true;
-	this.elements = ['Q', 'W', 'E', 'R', 'A', 'S', 'D', 'F', 'X'];
+	this.elements = ['Q', 'W', 'E', 'R', 'A', 'S', 'D', 'F', 'X', 'x'];
 	this.modifiers = ['[', ']', '!', 'c'];
 	this.it = 0;
 	this.text = "";
@@ -27,7 +27,8 @@ function MWWSpellParser(type, name)
 	":D",
     "'S ",
     "'RE ",
-    " D:"
+    " D:",
+    "P.S."
 	];
 	this.ParseSpells();
 }
@@ -306,5 +307,3 @@ MWWSpellParser.prototype.ParseSpells = function()
 		}
 	}
 };
-
-var p = new MWWSpellParser("class", "postbody");

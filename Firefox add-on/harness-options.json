@@ -1,0 +1,51 @@
+{
+ "enable_e10s": false, 
+ "is-sdk-bundled": true, 
+ "jetpackID": "jid0-3aQriDANXkXFnvQJfokzg0Wkkfg@jetpack", 
+ "loader": "addon-sdk/lib/sdk/loader/cuddlefish.js", 
+ "main": "main", 
+ "mainPath": "magicka-wizard-wars-spell-parser/main", 
+ "manifest": {
+  "magicka-wizard-wars-spell-parser/main": {
+   "docsSHA256": null, 
+   "jsSHA256": "794c074adf9c8e859d4670df28c19922082e6294b221223e0143c6bd2e5c2ca4", 
+   "moduleName": "main", 
+   "packageName": "magicka-wizard-wars-spell-parser", 
+   "requirements": {
+    "sdk/page-mod": "sdk/page-mod", 
+    "sdk/self": "sdk/self", 
+    "sdk/simple-storage": "sdk/simple-storage", 
+    "sdk/tabs": "sdk/tabs", 
+    "sdk/widget": "sdk/widget"
+   }, 
+   "sectionName": "lib"
+  }
+ }, 
+ "metadata": {
+  "addon-sdk": {
+   "description": "Add-on development made easy.", 
+   "keywords": [
+    "javascript", 
+    "engine", 
+    "addon", 
+    "extension", 
+    "xulrunner", 
+    "firefox", 
+    "browser"
+   ], 
+   "license": "MPL 2.0", 
+   "name": "addon-sdk"
+  }, 
+  "magicka-wizard-wars-spell-parser": {
+   "author": "Galbar", 
+   "description": "Add-on that converts M:WW spells into elements icons.\nWorks on:\n- http://forum.paradoxplaza.com/forum/\n- http://steamcommunity.com/sharedfiles/filedetails/?id196132827", 
+   "main": "main", 
+   "name": "magicka-wizard-wars-spell-parser", 
+   "version": "1.10"
+  }
+ }, 
+ "name": "magicka-wizard-wars-spell-parser", 
+ "sdkVersion": "1.14", 
+ "staticArgs": {}, 
+ "verbose": false
+}
