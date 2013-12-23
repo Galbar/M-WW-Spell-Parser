@@ -10,29 +10,50 @@ var knownSites = [
 ["http://steamcommunity.com/sharedfiles/filedetails/?id=196132827*","id","profileBlock"],
 ["https://steamcommunity.com/sharedfiles/filedetails/?id=196132827*","id","profileBlock"]
 ];
+
+var knownSpecialSites = [
+["http://forum.paradoxplaza.com/forum/showthread.php*","steamChat.js",]
+];
+
 var pageMods = [];
+
+function setMods ()
+{
+  // Standard sites
+  for (var i = 0; i < knownSites.length; i++)
+  {
+    pageMods.push(pageMod.PageMod({
+      include: knownSites[i][0],
+      contentScriptFile: self.data.url("MWW-parser-1.10.js"),
+      contentStyleFile: self.data.url("style.css"),
+      contentScript: 'new MWWSpellParser("'+knownSites[i][1]+'", "'+knownSites[i][2]+'");',
+    }));
+  }
+  // Special sites
+  for (var i = 0; i < knownSpecialSites.length; i++)
+  {
+    pageMods.push(pageMod.PageMod({
+      include: knownSpecialSites[i][0],
+      contentScriptFile: self.data.url("MWW-parser-1.10.js"),
+      contentStyleFile: self.data.url("style.css"),
+      contentScriptFile: self.data.url(knownSpecialSites[1]),
+    }));
+  }
+}
 
 if (ss.storage.active == undefined)
 {
-    ss.storage.active = true;
+  ss.storage.active = true;
 }
 
 if (ss.storage.active)
 {
-    ss.storage.icon = self.data.url("icon.jpg");
-    for (var i = 0; i < knownSites.length; i++)
-    {
-        pageMods.push(pageMod.PageMod({
-          include: knownSites[i][0],
-          contentScriptFile: self.data.url("MWW-parser-1.10.js"),
-          contentStyleFile: self.data.url("style.css"),
-          contentScript: 'new MWWSpellParser("'+knownSites[i][1]+'", "'+knownSites[i][2]+'");',
-        }));
-    }
+  ss.storage.icon = self.data.url("icon.jpg");
+  setMods();
 }
 else
 {
-    ss.storage.icon = self.data.url("icon-disabled.jpg");
+  ss.storage.icon = self.data.url("icon-disabled.jpg");
 }
 
 var widget = widgets.Widget({
@@ -43,28 +64,20 @@ var widget = widgets.Widget({
     ss.storage.active = !ss.storage.active;
     if (ss.storage.active)
     {
-        this.contentURL = self.data.url("icon.jpg");
-        for (var i = 0; i < knownSites.length; i++)
-        {
-            pageMods.push(pageMod.PageMod({
-              include: knownSites[i][0],
-              contentScriptFile: self.data.url("MWW-parser-1.10.js"),
-              contentStyleFile: self.data.url("style.css"),
-              contentScript: 'new MWWSpellParser("'+knownSites[i][1]+'", "'+knownSites[i][2]+'");',
-            }));
-        }
+      this.contentURL = self.data.url("icon.jpg");
+      setMods();
     }
     else
     {
-        this.contentURL = self.data.url("icon-disabled.jpg");
-        for (var i = 0; i < pageMods.length; i++)
-        {
-            pageMods[i].destroy();
-        }
+      this.contentURL = self.data.url("icon-disabled.jpg");
+      for (var i = 0; i < pageMods.length; i++)
+      {
+        pageMods[i].destroy();
+      }
     }
     tabs.activeTab.attach({
       contentScript:
-        'location.reload();'
+      'location.reload();'
     })
   }
 });

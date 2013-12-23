@@ -28,12 +28,12 @@ function MWWSpellParser(type, name)
 	"F.A.Q.",
 	":S",
 	":D",
-    "'S ",
-    "'RE ",
-    " D:",
-    "P.S.",
-    "xD",
-    "XD"
+	"'S ",
+	"'RE ",
+	" D:",
+	"P.S.",
+	"xD",
+	"XD"
 	];
 	this.ParseSpells();
 }
@@ -43,9 +43,9 @@ MWWSpellParser.prototype.skipHTML = function()
 	if (this.text[this.it] == '<')
 	{
 		if ((this.text[this.it+1] >= 'a' && this.text[this.it+1] <= 'z')
-		 || (this.text[this.it+1] >= 'A' && this.text[this.it+1] <= 'Z')
-		 || (this.text[this.it+1] >= '0' && this.text[this.it+1] <= '9')
-		 || this.text[this.it+1] == '!')
+			|| (this.text[this.it+1] >= 'A' && this.text[this.it+1] <= 'Z')
+			|| (this.text[this.it+1] >= '0' && this.text[this.it+1] <= '9')
+			|| this.text[this.it+1] == '!')
 		{
 			while (this.it < this.text.length && this.text[this.it] != '>')
 			{
@@ -147,10 +147,10 @@ MWWSpellParser.prototype.ParseString = function(text)
 				//console.log("cancelling spell "+out);
 				for (; this.it < this.text.length && !(this.isSeparator(this.text[this.it])); this.it++);
 				//console.log(this.text.substring(this.it-1,this.it+2));
-				cancel_spell = false;
-			}
-			else if (!mod_open && elem_count > 0 && elem_count < 4)
-			{
+			cancel_spell = false;
+		}
+		else if (!mod_open && elem_count > 0 && elem_count < 4)
+		{
 				//console.log("Hechizo acabado: "+out);
 				//console.log(this.text.substring(this.it-out.length,this.it));
 				ret_text += this.text.substring(last_pos,this.it-out.length)+"<strong class='MWWSpell'>"+spell_html+"</strong>";
