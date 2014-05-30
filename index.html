@@ -66,8 +66,30 @@ Total = 120<br>
 Normal cast + Selfcast = Total * 2 = 226<br>
 
 </p>
+
+<h1>Parsing Edge Cases</h1>
+<p>Spells that are one letter long do not show unless that letter is E.  The following spells should not convert to icons:
+A
+S 
+D 
+F
+Q
+W
+R
+X
+</p>
+<p>
+	If a spell is 2 or more characters, with one of those characters potentially being !, everything should convert.  For example:
+	!A
+	!E
+	!Q
+	cQ
+	[Q]
+	!X	
+</p>
+
 <!-- JS -->
-<script type="text/javascript" src="MWW-parser-1.10.js"></script>
+<script type="text/javascript" src="MWW-parser-1.12.js"></script>
 <script type="text/javascript">
 var p = new MWWSpellParser("class", "postbody");
 //var body = document.getElementsByTagName('body')[0];
