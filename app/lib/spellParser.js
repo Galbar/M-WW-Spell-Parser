@@ -14,7 +14,7 @@ spellMatch = {
 function spellParser(str) {
 	var filter = ['FAQ'];
 	var result = [];
-	var re = /(!|c)?([QWERASDFX]{3}|[QWERASDFX]\[[QWERASDFX][QWERASDFX]\]|\[[QWERASDFX][QWERASDFX]\][QWERASDFX]|\[[QWERASDFX]{3}\])(:[0-9]{3})?/g;
+	var re = /((!|c)?([QWERASDFX]{2,3}|[QWERASDFX]\[[QWERASDFX][QWERASDFX]\]|\[[QWERASDFX][QWERASDFX]\][QWERASDFX]|\[[QWERASDFX]{2,3}\])|(!|c)([QWERASDFX]))(:[0-9]{1,3})?/g;
 	var match = re.exec(str);
 	while (match != null) {
 		var s = {
@@ -23,8 +23,8 @@ function spellParser(str) {
 			spell : str.substring(match.index, re.lastIndex)
 		};
 		if (filter.indexOf(s.spell) < 0 && 
-			(s.start == 0 || str[s.start-1].match(/[\W\S]/) != null) &&
-			(s.end == str.length || str[s.end].match(/[\W\S]/) != null)
+			(s.start == 0 || str[s.start-1].match(/[\W\s]/) != null) &&
+			(s.end == str.length || str[s.end].match(/[\W\s]/) != null)
 			)
 			result.push(s);
 		else
