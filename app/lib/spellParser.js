@@ -11,6 +11,12 @@ spellMatch = {
 }
 **/
 
+function isVerySpecialCase(spell, str) {
+	if (str.substring(spell.start-2, spell.end) == 'M:WW')
+		return true;
+	return false;
+}
+
 function spellParser(str) {
 	var filter = ['FAQ'];
 	var result = [];
@@ -24,8 +30,8 @@ function spellParser(str) {
 		};
 		if (filter.indexOf(s.spell) < 0 && 
 			(s.start == 0 || str[s.start-1].match(/[\W\s]/) != null) &&
-			(s.end == str.length || str[s.end].match(/[\W\s]/) != null)
-			)
+			(s.end == str.length || str[s.end].match(/[\W\s]/) != null) &&
+			!isVerySpecialCase(s, str))
 			result.push(s);
 		else
 			console.log(str.substring(s.start-1, s.end +1));
