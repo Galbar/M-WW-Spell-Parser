@@ -20,7 +20,7 @@ function isVerySpecialCase(spell, str) {
 function spellParser(str) {
 	var filter = ['FAQ'];
 	var result = [];
-	var re = /((!|c)?([QWERASDFX]{2,3}|[QWERASDFX]\[[QWERASDFX][QWERASDFX]\]|\[[QWERASDFX][QWERASDFX]\][QWERASDFX]|\[[QWERASDFX]{2,3}\])|(!|c)([QWERASDFX]))(:[0-9]{1,3})?/g;
+	var re = /((!|c)?([QWERASDFX]{2,3}|[QWERASDFX]\[[QWERASDFX][QWERASDFX]\]|\[[QWERASDFX][QWERASDFX]\][QWERASDFX]|\[[QWERASDFX]{2,3}\])|(!|c)[QWERASDFX]|\[[QWERASDFX]\])(:[0-9]{1,3})?/g;
 	var match = re.exec(str);
 	while (match != null) {
 		var s = {
