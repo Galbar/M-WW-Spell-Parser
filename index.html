@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Magicka: Wizard Wars Parser</title>
-<link href='style.css' rel='stylesheet' media='screen'></link>
+<link href='style/style.css' rel='stylesheet' media='screen'></link>
 </head>
 <body id="body" class="postbody">
 	<h1>A List of All the Spells</h1>
@@ -66,12 +66,69 @@ Total = 120<br>
 Normal cast + Selfcast = Total * 2 = 226<br>
 
 </p>
+
+</p>
+
+<h1>Parsing Edge Cases</h1>
+<p>Spells that are one letter long do not show unless that letter is E.  The following spells should not convert to icons:
+A
+S 
+D 
+F
+Q
+W
+R
+X
+</p>
+<p>
+	If a spell is 2 or more characters, with one of those characters potentially being !, everything should convert.  For example:
+	!A
+	!E
+	!Q
+	cQ
+	[Q]
+	!X	
+</p>
+
+<h1>Spells with finger numbers</h1>
+<p>
+	[SE]S:232
+	![SE]S:232
+	EFD:343
+	DDD:4
+	SDF:123
+	!AS:23
+</p>
 <!-- JS -->
-<script type="text/javascript" src="MWW-parser-1.10.js"></script>
+<script type="text/javascript" src="lib/explorer.js"></script>
+<script type="text/javascript" src="lib/spellParser.js"></script>
+<script type="text/javascript" src="lib/MWWSpellParser.js"></script>
 <script type="text/javascript">
-var p = new MWWSpellParser("class", "postbody");
-//var body = document.getElementsByTagName('body')[0];
-//body.innerHTML = p.ParseString(body.innerHTML);
+	var explorer = new Explorer(
+	function(e) {
+		return ((e.nodeName == "#text" && !e.mwwspellparser)
+			    || e.nodeName == "SCRIPT");
+	},
+	function(e) {
+		if (e.nodeName == "SCRIPT")
+			return;
+		var str = e.textContent;
+		var spells = spellParser(str);
+		var prev = 0;
+		for (var i = 0; i < spells.length; i++) {
+			var r = spells[i];
+			var prev_substr = str.substring(prev, r.start);
+			var textNode = document.createTextNode(prev_substr);
+			textNode.mwwspellparser = true;
+			e.parentNode.insertBefore(textNode, e);
+			var spellNode = makeSpell(r.spell);
+			spellNode.mwwspellparser = true;
+			e.parentNode.insertBefore(spellNode, e);
+			prev = r.end;
+		};
+		e.textContent = e.textContent.substring(prev, e.textContent.length);
+	});
+	explorer.explore(document.body);
 </script>
 </body>
 </html>

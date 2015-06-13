@@ -114,9 +114,18 @@
 	background-image: url("http://galbar.github.io/M-WW-Spell-Parser/images/unknown.png");
 }
 
-.MWWElement-text
+.MWWSpellText
 {
 	opacity: 0;
+}
+
+.MWWSpellNumber
+{
+	position: relative;
+	top: 2px;
+	font-family: sans-serif;
+	vertical-align: middle;
+	font-size: 15px;
 }
 
 # http://galbar.github.io/M-WW-Spell-Parser/
