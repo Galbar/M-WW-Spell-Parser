@@ -1,6 +1,6 @@
 {
   "name": "Magicka: Wizard Wars Spell Parser",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Add-on that converts M:WW spells into elements icons.",
   "permissions": [
     "tabs",
