@@ -12,7 +12,9 @@ spellMatch = {
 **/
 
 function isVerySpecialCase(spell, str) {
-	if (str.substring(spell.start-2, spell.end) == 'M:WW')
+	if (str.substring(spell.start-4, spell.end).match(/M\s*\:\s*WW/) != null)
+		return true;
+	else if (str.substring(spell.start-10, spell.end).match(/Magicka\s*\:\s*WW/) != null)
 		return true;
 	return false;
 }
