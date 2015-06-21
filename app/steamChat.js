@@ -1,10 +1,8 @@
-function hasClass(element, cls)
-{
+function hasClass(element, cls) {
     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
 
-function addClass(element, cls)
-{
+function addClass(element, cls) {
     element.className += ' ' + cls;
 };
 
@@ -33,13 +31,11 @@ function(e) {
 	e.textContent = e.textContent.substring(prev, e.textContent.length);
 });
 
-function ParseNewMessages()
-{
+function ParseNewMessages() {
 	console.log("parsing");
 	var chat_messages = document.getElementsByClassName('chat_message_text');
 	for (var i = 0; i < chat_messages.length; i++) {
-		if (!hasClass(chat_messages[i], 'MWWSP-parsed'))
-		{
+		if (!hasClass(chat_messages[i], 'MWWSP-parsed')) {
 			explorer.explore(chat_messages[i]);
 			addClass(chat_messages[i], 'MWWSP-parsed');
 		};

@@ -62,35 +62,27 @@ function MWWSpellParser (name, value) {
 
 	var HTMLelements;
 	var is_id = false
-	if (name == "tag")
-	{
+	if (name == "tag") {
 		HTMLelements = document.getElementsByTagName(value);
 	}
-	else if (name == "id")
-	{
+	else if (name == "id") {
 		is_id = true;
 		HTMLelements = document.getElementById(value);
 	}
-	else if (name == "class")
-	{
+	else if (name == "class") {
 		HTMLelements = document.getElementsByClassName(value);
 	}
-	if (HTMLelements != undefined)
-	{
-		if (is_id)
-		{
+	if (HTMLelements != undefined) {
+		if (is_id) {
 			explorer.explore(HTMLelements);
 		}
-		else
-		{
-			for (var i = 0; i < HTMLelements.length; i++)
-			{
+		else {
+			for (var i = 0; i < HTMLelements.length; i++) {
 				explorer.explore(HTMLelements[i]);
 			};
 		}
 	}
-	else
-	{
+	else {
 		console.log("No elements found");
 	}
 }
